@@ -7,3 +7,36 @@
 @import "base/_breakpoints";
 @import "base/_base";
 @import "base/_typography";
+
+// Tabs' bages
+.bfd-tab {
+	&__icon {
+		color: $color-primary;
+	}
+
+	&__badge {
+		background-color: $color-primary;
+		color: $color-white;
+	}
+
+	&.disabled .bfd-tab {
+		&__icon {
+			color: darken(palette("light"), 40%);
+		}
+
+		&__badge {
+			background-color: palette("light");
+			color: $color-text;
+		}
+	}
+
+	&.active .bfd-tab {
+		&__icon {
+			color: palette("warning");
+		}
+
+		&__badge {
+			background-color: palette("warning");
+		}
+	}
+}
