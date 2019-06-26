@@ -1,0 +1,32 @@
+/* CSS Document */
+
+// Media Breakpoings
+$breakpoints: (
+	'screen': 1366px,
+	'container': 1100px,
+	'tablet-landscape': 1024px,
+	'tablet-portrait': 768px,
+	'mobile-lg': 600px,
+	'mobile':480px,
+	'mobile-sm': 320px,
+	'full-height': 100vh,
+	'full-width': 100vw
+);
+@function breakpoint($key: 'screen') {
+	@return map-get($breakpoints, $key);
+}
+
+// Padding
+$padding: (
+	'container': 0em,
+	'container-fluid': 80px 0em,
+	'container-fluid-sides': 80px 1em,
+	'row': 0em,
+	'standard-all': 1em,
+	'large-all':2em,
+	'standard-sides':0em 1em,
+	'large-sides':0em 1em
+);
+@function padding($key: 'container') {
+	@return map-get($padding, $key);
+}

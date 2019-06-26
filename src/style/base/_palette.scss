@@ -1,0 +1,56 @@
+/* CSS Document */
+
+// Project Colours
+$color-primary: #00996b;
+$color-secondary: #7a6c67;
+$color-text: #000;
+$color-white: #f9f7f7;
+
+
+// Colour Palette
+/* RGB */
+$palette: (
+	'primary': $color-primary, // Primary Brand Colour
+	'secondary': $color-secondary, // Secondary Brand Colour
+	'accent1': #173257,
+	'accent2': #49486A,
+	'accent3': #EF5D5D,
+	'accent4': #F1F1F1,
+	'success': #28A745, // bootstrap colour
+	'info': #17A2B8, // bootstrap colour
+	'warning': #FFC107, // bootstrap colour
+	'danger': #DC3545, // bootstrap colour
+	'light': #F8F9FA, // bootstrap colour
+	'dark': #343A40, // bootstrap colour
+	'black': #141414,
+	'white': #FFFFFF
+);
+
+@function palette($key: 'primary') {
+	@return map-get($palette, $key);
+}
+// colour tints and shades
+
+$color-interval: 10% !global;
+@function palette-color-level($color-name: 'primary', $level: 0) {
+  $color: palette($color-name);
+  $color-base: if($level < 0, black, white);
+
+  @return mix($color-base, $color, $level * $color-interval);
+}
+
+// Example:
+//.panel {
+  //background-color: palette-color-level('primary', 2);
+//}
+
+.black {
+	color:palette('black');
+}
+.black-s {
+	color:palette('black');
+	text-shadow: 5px 5px 2px lighten(palette('black'), 55%);
+}
+.white {
+	color:palette('white');
+}

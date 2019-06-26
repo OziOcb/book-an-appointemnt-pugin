@@ -1,0 +1,137 @@
+/* CSS Document */
+// Scss function for Responsive/Fluid Typography (use only with h1-h6)
+@function strip-unit($value) {
+	@return $value / ($value * 0 + 1);
+}
+
+@mixin fluid-type($min-vw, $max-vw, $min-font-size, $max-font-size) {
+	$u1: unit($min-vw);
+	$u2: unit($max-vw);
+	$u3: unit($min-font-size);
+	$u4: unit($max-font-size);
+
+	@if $u1 == $u2 and $u1 == $u3 and $u1 == $u4 {
+		& {
+			font-size: $min-font-size;
+			@media screen and (min-width: $min-vw) {
+				font-size: calc(
+					#{$min-font-size} + #{strip-unit($max-font-size - $min-font-size)} *
+						((100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)})
+				);
+			}
+
+			@media screen and (min-width: $max-vw) {
+				font-size: $max-font-size;
+			}
+		}
+	}
+}
+
+$min_width: 360px;
+$max_width: 1200px;
+
+/* How to use it - example.
+ * h1 {
+ *	 @include fluid-type($min_width, $max_width, $min_font, $max_font);
+ * }
+*/
+
+h1 {
+	@include fluid-type($min_width, $max_width, 51px, 60px);
+}
+h2 {
+	@include fluid-type($min_width, $max_width, 38px, 45px);
+}
+h3 {
+	@include fluid-type($min_width, $max_width, 27px, 32px);
+}
+h4 {
+	@include fluid-type($min_width, $max_width, 21px, 25px);
+}
+h5 {
+	@include fluid-type($min_width, $max_width, 17px, 20px);
+}
+h6 {
+	@include fluid-type($min_width, $max_width, 13px, 16px);
+}
+
+p {
+	@include fluid-type($min_width, $max_width, 17px, 20px);
+}
+button {
+	@include fluid-type($min_width, $max_width, 21px, 25px);
+}
+a {
+	@include fluid-type($min_width, $max_width, 21px, 25px);
+}
+
+.font-xxxl {
+	@include fluid-type($min_width, $max_width, 56px, 66px);
+}
+.font-xxl {
+	@include fluid-type($min_width, $max_width, 51px, 60px);
+}
+.font-xl {
+	@include fluid-type($min_width, $max_width, 38px, 45px);
+}
+.font-lg {
+	@include fluid-type($min_width, $max_width, 34px, 40px);
+}
+.font-md {
+	@include fluid-type($min_width, $max_width, 27px, 32px);
+}
+.font-sm {
+	@include fluid-type($min_width, $max_width, 21px, 25px);
+}
+.font-xs {
+	@include fluid-type($min_width, $max_width, 17px, 20px);
+}
+.font-xxs {
+	@include fluid-type($min_width, $max_width, 15px, 18px);
+}
+.font-xxxs {
+	@include fluid-type($min_width, $max_width, 12px, 14px);
+}
+
+// Update the below font family list and fonts function with choice of font
+/* ------- Font Calls ------- */
+$fonts: (
+	"title": "raleway",
+	"body": "raleway"
+);
+
+@function font($key: "title") {
+	@return map-get($fonts, $key);
+}
+
+/* ------- Headings ------- */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: font("title");
+}
+
+/* ------- Body etc. ------- */
+p,
+a,
+button {
+	font-family: font("body");
+}
+a {
+	color: darken(palette("primary"), 10%);
+	&:visited {
+	}
+	&:hover {
+		color: palette("primary");
+	}
+	&:focus {
+	}
+}
+
+/* ------- Helpers ------- */
+.line-height-1 {
+	line-height: 1;
+}

@@ -1,17 +1,8 @@
 @import "fonts";
 @import "vendor/bootstrap/bootstrap.scss";
 
-h1 {
-	color: green;
-	padding: 2rem 0;
-	font-family: quicksandregular;
-	text-align: center;
-	width: 100%;
-}
-
-p {
-	color: turquoise;
-	font-family: quicksandregular;
-	text-align: center;
-	width: 100%;
-}
+// Base
+@import "base/_palette";
+@import "base/_breakpoints";
+@import "base/_base";
+@import "base/_typography";

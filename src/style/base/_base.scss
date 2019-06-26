@@ -1,0 +1,160 @@
+/* CSS Document */
+body,
+html {
+	box-sizing: border-box;
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+body {
+	padding-top: 0px;
+	font-size: 100%;
+	font-family: font("body");
+}
+
+.z-index-under {
+	z-index: -99999 !important;
+}
+
+.show {
+	display: block;
+}
+
+.rotate-90 {
+	transform: rotate(90deg);
+}
+
+.overflow-visible {
+	overflow: visible !important;
+}
+
+// Set min-height of an element using vh unit
+.fill-viewport {
+	min-height: 100vh;
+}
+.fill-40-viewport {
+	min-height: 40vh;
+}
+.fill-80-viewport {
+	min-height: 80vh;
+}
+.fill-90-viewport {
+	min-height: 90vh;
+}
+
+// Set height of an element considering the browser's width
+.h-30vw {
+	height: 30vw;
+}
+
+.h-40vw {
+	height: 40vw;
+}
+
+.h-50vw {
+	height: 50vw;
+}
+
+.h-60vw {
+	height: 60vw;
+}
+
+// Set up hight: auto on tablet-landscape and above
+.h-xl-auto {
+	@media (min-width: breakpoint("tablet-landscape") + 1px) {
+		height: auto;
+	}
+}
+
+// Set different levels of opacity
+.opacity-100 {
+	opacity: 1;
+}
+.opacity-75 {
+	opacity: 0.75;
+}
+.opacity-50 {
+	opacity: 0.5;
+}
+.opacity-25 {
+	opacity: 0.25;
+}
+
+// Set display: flex for an element that is inside the element with this class
+.flex-forInsideElem > * {
+	display: flex;
+	flex-direction: column;
+
+	@media (min-width: breakpoint("tablet-landscape") + 1px) {
+		flex-direction: row;
+	}
+}
+
+// Set flex: { grow || shrink }
+.flex-1 {
+	flex: 1;
+}
+
+.flex-2 {
+	flex: 2;
+}
+
+.flex-0-0 {
+	flex: 0 0;
+}
+
+.flex-0-1 {
+	flex: 0 1;
+}
+
+.flex-1-0 {
+	flex: 1 0;
+}
+
+.flex-1-1 {
+	flex: 1 1;
+}
+
+// Set flex-basis to different widths
+.flex-basis-auto {
+	flex-basis: auto;
+}
+.flex-basis-100 {
+	flex-basis: 100px;
+}
+
+.flex-basis-200 {
+	flex-basis: 200px;
+}
+
+.flex-basis-300 {
+	flex-basis: 300px;
+}
+
+.flex-basis-400 {
+	flex-basis: 400px;
+}
+
+.flex-basis-500 {
+	flex-basis: 500px;
+}
+
+.flex-basis-600 {
+	flex-basis: 600px;
+}
+
+.flex-basis-700 {
+	flex-basis: 700px;
+}
+
+// Set different line-height values
+.line-height-1 {
+	line-height: 1;
+}
+
+.line-height-1-5 {
+	line-height: 1.5;
+}
+
+.line-height-2 {
+	line-height: 2;
+}
