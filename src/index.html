@@ -101,14 +101,122 @@
 
 					<!-- PLUGINS' MAIN AREA -->
 					<form role="form">
-						<div class="tab-content p-3 mt-2 border">
+						<div class="tab-content p-md-3 p-lg-5 mt-2 border">
 							<!-- STEP 1 - YOUR DETAILS -->
 							<div class="tab-pane active" role="tabpanel" id="step1">
-								<h2>Book and Pay Online</h2>
-								<p>This is step 1</p>
-								<div class="d-flex">
-									<button class="btn btn-primary ml-auto next-step" type="button">Save and continue</button>
+								<!-- STEP CONTENT -->
+								<div class="container-fluid mb-3">
+									<div class="row">
+										<div class="col-12 col-md-8 py-4 py-md-0 border border-danger">
+											<h2 class="text-primary">Book and Pay Online</h2>
+											<p class="lead">New Student</p>
+
+											<!-- FORM INPUTS -->
+											<fieldset class="form-group">
+												<div class="row">
+													<legend class="col-form-label col-4 text-right pt-0">Are you the student?</legend>
+													<div class="col-8">
+														<div class="form-check bg-light mb-1">
+															<input class="form-check-input" type="radio" name="isStudent" id="isStudent_yes" value="Yes" checked />
+															<label class="form-check-label" for="isStudent_yes">
+																YES
+															</label>
+														</div>
+														<div class="form-check bg-light">
+															<input class="form-check-input" type="radio" name="isStudent" id="isStudent_no" value="No" />
+															<label class="form-check-label" for="isStudent_no">
+																NO
+															</label>
+														</div>
+													</div>
+												</div>
+											</fieldset>
+
+											<div class="form-group row">
+												<label for="firstName" class="bfd-srOnlyOnMobile col-4 col-form-label text-right">First name:</label>
+												<div class="col">
+													<input type="text" class="form-control" id="firstName" placeholder="Name" />
+												</div>
+											</div>
+
+											<div class="form-group row">
+												<label for="surname" class="bfd-srOnlyOnMobile col-4 col-form-label text-right">Surname:</label>
+												<div class="col">
+													<input type="text" class="form-control" id="surname" placeholder="Surname" />
+												</div>
+											</div>
+
+											<div class="form-group row">
+												<label for="email" class="bfd-srOnlyOnMobile col-4 col-form-label text-right">Your email:</label>
+												<div class="col">
+													<input type="email" class="form-control" id="email" placeholder="Email" />
+												</div>
+											</div>
+
+											<div class="form-group row">
+												<label for="telephone" class="bfd-srOnlyOnMobile col-4 col-form-label text-right">Telephone:</label>
+												<div class="col">
+													<input type="tel" class="form-control" id="telephone" placeholder="Tel" />
+												</div>
+											</div>
+
+											<div class="form-group row">
+												<label for="postcode" class="bfd-srOnlyOnMobile col-4 col-form-label text-right">Postcode:</label>
+												<div class="col">
+													<input type="text" class="form-control" id="postcode" placeholder="Postcode" />
+												</div>
+											</div>
+
+											<fieldset class="form-group mb-5">
+												<div class="row">
+													<legend class="col-form-label col-4 text-right pt-0">Gearbox Type:</legend>
+													<div class="col-8">
+														<div class="form-check bg-light mb-1">
+															<input class="form-check-input" type="radio" name="gearboxType" id="gearboxType_namual" value="Manual" checked />
+															<label class="form-check-label" for="gearboxType_namual">
+																MANUAL
+															</label>
+														</div>
+														<div class="form-check bg-light">
+															<input class="form-check-input" type="radio" name="gearboxType" id="gearboxType_auto" value="Automatic" />
+															<label class="form-check-label" for="gearboxType_auto">
+																AUTOMATIC
+															</label>
+														</div>
+													</div>
+												</div>
+											</fieldset>
+
+											<div class="form-group row">
+												<div class="col offset-sm-2">
+													<div class="form-check">
+														<input class="form-check-input" type="checkbox" id="allowToCall" />
+														<label class="form-check-label font-xxxs" for="allowToCall">
+															I agree that by continuing to the next step I am giving my consent to allow RED to call me to discuss Learner Driver offers and to send me relevant Learner Driver offers via email and SMS. I understand RED will
+															hold my data for this purpose for no more than 30 days unless I book a lesson and/or purchase a pre-paid lesson package. RED will not use your data for any other purpose. You can view our full Privacy Policy
+															here.
+														</label>
+													</div>
+												</div>
+											</div>
+											<!-- FORM INPUTS END -->
+
+											<!-- BUTTONS BAR -->
+											<div class="d-flex">
+												<button class="btn btn-primary ml-auto next-step" type="button">NEXT STEP</button>
+											</div>
+											<!-- BUTTONS BAR END -->
+										</div>
+
+										<!-- ASIDE -->
+										<aside class="col-12 col-md-4 py-4 py-md-0 border border-warning">
+											======== ========= Lorem ipsum dolor, sit amet consectetur adipisicing elit. Soluta hic maiores rem nulla. Obcaecati quia quis at impedit omnis? Ipsum ipsam natus perferendis expedita magni repellendus quibusdam
+											exercitationem. Soluta, fuga asperiores sequi assumenda molestias sint molestiae doloribus. Tempora, ad doloremque?
+										</aside>
+										<!-- ASIDE END -->
+									</div>
 								</div>
+								<!-- STEP CONTENT END -->
 							</div>
 							<!-- STEP 1 - YOUR DETAILS END -->
 
@@ -116,11 +224,13 @@
 							<div class="tab-pane" role="tabpanel" id="step2">
 								<h2>Step 2 - PACKAGES</h2>
 								<p>This is step 2</p>
+
+								<!-- BUTTONS BAR -->
 								<div class="d-flex">
 									<button class="btn btn-default prev-step mr-1" type="button">Previous</button>
-									<button class="btn btn-default next-step mr-1" type="button">Skip</button>
 									<button class="btn btn-primary ml-auto next-step" type="button">Save and continue</button>
 								</div>
+								<!-- BUTTONS BAR END -->
 							</div>
 							<!-- STEP 2 - PACKAGES END -->
 
@@ -128,11 +238,13 @@
 							<div class="tab-pane" role="tabpanel" id="step3">
 								<h2>Step 3 - DATE & TIME</h2>
 								<p>This is step 3</p>
+
+								<!-- BUTTONS BAR -->
 								<div class="d-flex">
 									<button class="btn btn-default prev-step mr-1" type="button">Previous</button>
-									<button class="btn btn-default next-step mr-1" type="button">Skip</button>
 									<button class="btn btn-primary ml-auto next-step" type="button">Save and continue</button>
 								</div>
+								<!-- BUTTONS BAR END -->
 							</div>
 							<!-- STEP 3 - DATE & TIME END -->
 
@@ -140,17 +252,20 @@
 							<div class="tab-pane" role="tabpanel" id="step4">
 								<h2>Step 4 - PAYMENT</h2>
 								<p>This is step 4</p>
+
+								<!-- BUTTONS BAR -->
 								<div class="d-flex">
 									<button class="btn btn-default prev-step mr-1" type="button">Previous</button>
-									<button class="btn btn-default next-step mr-1" type="button">Skip</button>
 									<button class="btn btn-primary ml-auto next-step" type="button">Save and continue</button>
 								</div>
+								<!-- BUTTONS BAR END -->
 							</div>
 							<!-- STEP 4 - PAYMENT END -->
 
 							<!-- STEP 5 - THANK YOU -->
 							<div class="tab-pane" role="tabpanel" id="complete">
 								<h2>Complete</h2>
+
 								<p>You have successfully completed all steps!</p>
 							</div>
 							<!-- STEP 5 - THANK YOU END -->
@@ -158,7 +273,7 @@
 					</form>
 					<!-- PLUGINS' MAIN AREA END -->
 				</section>
-			</span>
+			</div>
 		</div>
 
 		<!-- SCRIPTS -->
