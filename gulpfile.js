@@ -10,6 +10,7 @@ const sass = require("gulp-sass");
 const autoprefixer = require("autoprefixer");
 const cssnano = require("cssnano");
 const plumber = require("gulp-plumber");
+const sourcemaps = require("gulp-sourcemaps");
 
 const config = {
 	app: {
@@ -28,6 +29,7 @@ const config = {
 
 function jsTask(done) {
 	src(config.app.js)
+		.pipe(sourcemaps.init())
 		.pipe(plumber())
 		.pipe(
 			babel({
@@ -36,16 +38,19 @@ function jsTask(done) {
 		)
 		.pipe(concat("main.bundle.js"))
 		.pipe(uglify())
+		.pipe(sourcemaps.write())
 		.pipe(dest(config.dist.base));
 	done();
 }
 
 function cssTask(done) {
 	src(config.app.scss)
+		.pipe(sourcemaps.init())
 		.pipe(plumber())
 		.pipe(sass({ outputStyle: "expanded" }))
 		.pipe(rename({ suffix: ".bundle" }))
 		.pipe(postcss([autoprefixer(), cssnano()]))
+		.pipe(sourcemaps.write())
 		.pipe(dest(config.dist.base));
 	done();
 }
@@ -93,16 +98,5 @@ function cleanUp() {
 	return del([config.dist.base]);
 }
 
-exports.dev = parallel(
-	jsTask,
-	cssTask,
-	fontTask,
-	imagesTask,
-	templateTask,
-	watchFiles,
-	liveReload
-);
-exports.build = series(
-	cleanUp,
-	parallel(jsTask, cssTask, fontTask, imagesTask, templateTask)
-);
+exports.dev = parallel(jsTask, cssTask, fontTask, imagesTask, templateTask, watchFiles, liveReload);
+exports.build = series(cleanUp, parallel(jsTask, cssTask, fontTask, imagesTask, templateTask));
