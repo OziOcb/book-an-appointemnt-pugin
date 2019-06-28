@@ -1,38 +1,25 @@
-$(document).ready(function() {
-	// tab wizard
-	$('a[data-toggle="tab"]').on("show.bs.tab", function(e) {
-		var $target = $(e.relatedTarget);
-		if ($target.parent().hasClass("disabled")) {
-			return false;
-		}
-	});
-
-	$(".next-step").click(function(e) {
-		var $active = $(".nav-tabs .nav-link.active");
-		$active
-			.parent()
-			.next()
-			.find(".nav-link")
-			.removeClass("disabled");
-		nextTab($active);
-	});
-	$(".prev-step").click(function(e) {
-		var $active = $(".nav-tabs li>a.active");
-		prevTab($active);
-	});
+document.addEventListener("DOMContentLoaded", function() {
+	nextBtns.forEach(btn => btn.addEventListener("click", goToNextStep));
+	prevBtns.forEach(btn => btn.addEventListener("click", goToPrevStep));
 });
 
-function nextTab(elem) {
-	$(elem)
-		.parent()
-		.next()
-		.find('a[data-toggle="tab"]')
-		.click();
-}
-function prevTab(elem) {
-	$(elem)
-		.parent()
-		.prev()
-		.find('a[data-toggle="tab"]')
-		.click();
-}
+// get all NEXT & PREVIOUS buttons
+const nextBtns = document.querySelectorAll(".next-step");
+const prevBtns = document.querySelectorAll(".prev-step");
+
+// go to the Next Step & remove .disabled form the Next Tab
+const goToNextStep = e => {
+	const step = parseInt(e.target.dataset.step);
+	const nextTab = document.querySelector(`#tabStep${step + 1}`);
+
+	nextTab.classList.remove("disabled");
+	nextTab.click();
+};
+
+// go to the Previous Step
+const goToPrevStep = e => {
+	const step = parseInt(e.target.dataset.step);
+	const prevTab = document.querySelector(`#tabStep${step - 1}`);
+
+	prevTab.click();
+};
