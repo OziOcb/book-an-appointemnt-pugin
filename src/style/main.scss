@@ -52,6 +52,11 @@
 	transition: all 0.4s ease-in-out;
 }
 
+.form-check-input.invalid {
+	height: 40px;
+	width: 40px;
+}
+
 @keyframes shaking {
 	10%,
 	90% {

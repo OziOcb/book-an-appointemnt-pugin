@@ -1,18 +1,56 @@
-document.addEventListener("DOMContentLoaded", function() {
-	nextBtns.forEach(btn => btn.addEventListener("click", goToNextStep));
-	prevBtns.forEach(btn => btn.addEventListener("click", goToPrevStep));
-});
+// Do the validation for a specific Step
+const myForm = document.querySelector("#stepped");
+const steps = myForm.querySelectorAll(".tab-pane");
 
-// get all NEXT & PREVIOUS buttons
-const nextBtns = document.querySelectorAll(".next-step");
-const prevBtns = document.querySelectorAll(".prev-step");
+function validateStep(step) {
+	const inputs = steps[step - 1].querySelectorAll(".form-control");
+	const checkboxes = steps[step - 1].querySelectorAll("input[type=checkbox]");
+	let valid = true;
 
-// go to the Next Step & remove .disabled form the Next Tab
+	// Check if inputs are empty
+	for (let input of inputs) {
+		const inClassList = input.classList;
+
+		if (input.value === "" && input.hasAttribute("required")) {
+			inClassList.add("invalid");
+			valid = false;
+		} else {
+			const regexEmail = /[a-z0-9!#$%&' * +/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/;
+			const regexTel = /\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}/;
+
+			if ((input.id === "email" && !input.value.match(regexEmail)) || (input.id === "telephone" && !input.value.match(regexTel))) {
+				inClassList.add("invalid");
+				valid = false;
+			} else {
+				inClassList.remove("invalid");
+			}
+		}
+	}
+
+	// Check if checkboxes are checked
+	for (let checkbox of checkboxes) {
+		const checkClassList = checkbox.classList;
+
+		if (!checkbox.checked && checkbox.hasAttribute("required")) {
+			checkClassList.add("invalid");
+			valid = false;
+		} else {
+			checkClassList.remove("invalid");
+		}
+	}
+
+	// Return result of all validations
+	return valid;
+}
+
+// Go to the Next Step, validate, remove 'disabled' class form the NextTab
 const goToNextStep = e => {
-	// First validate all step's inputs
 	const step = parseInt(e.target.dataset.step);
-	if (!validateForm(step)) return false;
 
+	// First validate all step's inputs
+	if (!validateStep(step)) return false;
+
+	// Go to nextTab
 	const nextTab = document.querySelector(`#tabStep${step + 1}`);
 	nextTab.classList.remove("disabled");
 	nextTab.click();
@@ -25,26 +63,12 @@ const goToPrevStep = e => {
 	prevTab.click();
 };
 
-// Do the validation
-const myForm = document.querySelector("#stepped");
-const steps = myForm.querySelectorAll(".tab-pane");
+// Get all NEXT & PREVIOUS buttons
+const nextBtns = document.querySelectorAll(".next-step");
+const prevBtns = document.querySelectorAll(".prev-step");
 
-function validateForm(step) {
-	const input = steps[step - 1].querySelectorAll(".form-control");
-	let valid = true;
-
-	for (let i = 0; i < input.length; i++) {
-		if (input[i].value == "") {
-			if (!input[i].classList.contains("invalid")) {
-				input[i].classList.add("invalid");
-			}
-			valid = false;
-		}
-		if (!input[i].value == "") {
-			if (input[i].classList.contains("invalid")) {
-				input[i].classList.remove("invalid");
-			}
-		}
-	}
-	return valid;
-}
+// Set event listeners for buttons
+document.addEventListener("DOMContentLoaded", function() {
+	nextBtns.forEach(btn => btn.addEventListener("click", goToNextStep));
+	prevBtns.forEach(btn => btn.addEventListener("click", goToPrevStep));
+});
