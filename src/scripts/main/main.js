@@ -63,12 +63,23 @@ const goToPrevStep = e => {
 	prevTab.click();
 };
 
+// Remove 'invalid' class on focus
+const rmInvalidClass = () => {
+	const inputs = document.querySelectorAll("input");
+	inputs.forEach(input => {
+		input.addEventListener("focus", () => {
+			input.classList.remove("invalid");
+		});
+	});
+};
+
 // Get all NEXT & PREVIOUS buttons
 const nextBtns = document.querySelectorAll(".next-step");
 const prevBtns = document.querySelectorAll(".prev-step");
 
-// Set event listeners for buttons
+// Set event listeners
 document.addEventListener("DOMContentLoaded", function() {
 	nextBtns.forEach(btn => btn.addEventListener("click", goToNextStep));
 	prevBtns.forEach(btn => btn.addEventListener("click", goToPrevStep));
+	rmInvalidClass();
 });
