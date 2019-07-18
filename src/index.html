@@ -16,7 +16,7 @@
 			<div class="row">
 				<section class="col mx-auto">
 					<!-- TABS -->
-					<ul class="nav nav-tabs nav-fill" role="tablist">
+					<ul class="nav nav-tabs nav-fill mb-2" role="tablist">
 						<!-- TAB 1 -->
 						<li class="nav-item" role="presentation">
 							<a class="bfd-tab nav-link font-xxs active" href="#paneStep1" data-toggle="tab" aria-controls="paneStep1" role="tab" title="Step 1" id="tabStep1">
@@ -100,185 +100,209 @@
 					<!-- TABS END -->
 
 					<!-- PLUGINS' MAIN AREA -->
-					<form id="stepped" role="form">
-						<div class="tab-content p-md-3 p-lg-5 mt-2 border">
-							<!-- STEP 1 - YOUR DETAILS -->
-							<div class="tab-pane active" role="tabpanel" id="paneStep1">
-								<!-- STEP CONTENT -->
-								<div class="container-fluid mb-3">
-									<div class="row">
-										<div class="col-12 col-md-8 py-4 py-md-0 border border-danger">
-											<h2 class="text-primary">Book and Pay Online</h2>
-											<p class="lead">New Student</p>
 
-											<!-- FORM INPUTS -->
-											<!-- Are you a student? -->
-											<fieldset class="form-group">
-												<div class="row">
-													<legend class="col-form-label col-12 col-sm-4 col-form-label text-sm-right pt-0">Are you the student?</legend>
-													<div class="col">
-														<div class="bfd-radioBtn form-check bg-light mb-1">
-															<input class="form-check-input" type="radio" name="isStudent" id="isStudent_yes" value="Yes" checked />
-															<label class="form-check-label" for="isStudent_yes">
-																YES
-															</label>
-														</div>
-														<div class="bfd-radioBtn form-check bg-light">
-															<input class="form-check-input" type="radio" name="isStudent" id="isStudent_no" value="No" />
-															<label class="form-check-label" for="isStudent_no">
-																NO
-															</label>
-														</div>
-													</div>
+					<div class="row no-gutters border">
+						<!-- FORM -->
+						<form class="col-12 col-md-8 px-0 py-3 p-md-3 px-lg-4 py-lg-5" id="stepped" role="form">
+							<div class="tab-content p-2">
+								<!-- STEP 1 - YOUR DETAILS -->
+								<div class="tab-pane active" role="tabpanel" id="paneStep1">
+									<!-- STEP CONTENT -->
+
+									<h2 class="text-primary">Book and Pay Online</h2>
+									<p class="lead">New Student</p>
+
+									<!-- FORM INPUTS -->
+									<!-- Are you a student? -->
+									<fieldset class="form-group">
+										<div class="row">
+											<legend class="col-form-label col-12 col-sm-4 col-form-label text-sm-right pt-0">Are you the student?</legend>
+											<div class="col">
+												<div class="bfd-radioBtn form-check bg-light mb-1">
+													<input class="form-check-input" type="radio" name="isStudent" id="isStudent_yes" value="Yes" checked />
+													<label class="form-check-label" for="isStudent_yes">
+														YES
+													</label>
 												</div>
-											</fieldset>
-
-											<!-- First Name -->
-											<div class="form-group row">
-												<label for="firstName" class="bfd-srOnlyOnMobile col-12 col-sm-4 col-form-label text-sm-right">First name:</label>
-												<div class="col d-flex align-items-center">
-													<input type="text" class="form-control" id="firstName" placeholder="John" required />
+												<div class="bfd-radioBtn form-check bg-light">
+													<input class="form-check-input" type="radio" name="isStudent" id="isStudent_no" value="No" />
+													<label class="form-check-label" for="isStudent_no">
+														NO
+													</label>
 												</div>
 											</div>
-
-											<!-- Surname -->
-											<div class="form-group row">
-												<label for="surname" class="bfd-srOnlyOnMobile col-12 col-sm-4 col-form-label text-sm-right">Surname:</label>
-												<div class="col d-flex align-items-center">
-													<input type="text" class="form-control" id="surname" placeholder="Doe" required />
-												</div>
-											</div>
-
-											<!-- Email -->
-											<div class="form-group row">
-												<label for="email" class="bfd-srOnlyOnMobile col-12 col-sm-4 col-form-label text-sm-right">Your email:</label>
-												<div class="col d-flex align-items-center">
-													<input type="email" class="form-control" id="email" placeholder="johndoe@email.co.uk" required />
-												</div>
-											</div>
-
-											<!-- Telephone -->
-											<div class="form-group row">
-												<label for="telephone" class="bfd-srOnlyOnMobile col-12 col-sm-4 col-form-label text-sm-right">Telephone:</label>
-												<div class="col d-flex align-items-center">
-													<input type="number" class="form-control" id="telephone" placeholder="01234 123 123" required />
-												</div>
-											</div>
-
-											<!-- Post Code -->
-											<div class="form-group row">
-												<label for="postcode" class="bfd-srOnlyOnMobile col-12 col-sm-4 col-form-label text-sm-right">Postcode:</label>
-												<div class="col d-flex align-items-center">
-													<input type="text" class="form-control" id="postcode" placeholder="SW1A 0AA" required />
-												</div>
-											</div>
-
-											<!-- Gearbox Type -->
-											<fieldset class="form-group mb-5">
-												<div class="row">
-													<legend class="col-form-label col-12 col-sm-4 col-form-label text-sm-right pt-0">Gearbox Type:</legend>
-													<div class="col">
-														<div class="bfd-radioBtn form-check bg-light mb-1">
-															<input class="form-check-input" type="radio" name="gearboxType" id="gearboxType_manual" value="Manual" checked />
-															<label class="form-check-label" for="gearboxType_manual">
-																MANUAL
-															</label>
-														</div>
-														<div class="bfd-radioBtn form-check bg-light">
-															<input class="form-check-input" type="radio" name="gearboxType" id="gearboxType_auto" value="Automatic" />
-															<label class="form-check-label" for="gearboxType_auto">
-																AUTOMATIC
-															</label>
-														</div>
-													</div>
-												</div>
-											</fieldset>
-
-											<!-- Allow to call? -->
-											<div class="form-group row">
-												<div class="col offset-sm-2">
-													<div class="form-check bfd-checkbox">
-														<input class="form-check-input" type="checkbox" id="allowToCall" required />
-														<label class="form-check-label font-xxxs" for="allowToCall">
-															I agree that by continuing to the next step I am giving my consent to allow RED to call me to discuss Learner Driver offers and to send me relevant Learner Driver offers via email and SMS. I understand RED will
-															hold my data for this purpose for no more than 30 days unless I book a lesson and/or purchase a pre-paid lesson package. RED will not use your data for any other purpose. You can view our full Privacy Policy
-															here.
-														</label>
-													</div>
-												</div>
-											</div>
-											<!-- FORM INPUTS END -->
-
-											<!-- BUTTONS BAR -->
-											<div class="d-flex">
-												<button class="btn btn-primary ml-auto next-step" type="button" data-step="1">NEXT STEP</button>
-											</div>
-											<!-- BUTTONS BAR END -->
 										</div>
+									</fieldset>
 
-										<!-- ASIDE -->
-										<aside class="col-12 col-md-4 py-4 py-md-0 border border-warning">
-											======== ========= Lorem ipsum dolor, sit amet consectetur adipisicing elit. Soluta hic maiores rem nulla. Obcaecati quia quis at impedit omnis? Ipsum ipsam natus perferendis expedita magni repellendus quibusdam
-											exercitationem. Soluta, fuga asperiores sequi assumenda molestias sint molestiae doloribus. Tempora, ad doloremque?
-										</aside>
-										<!-- ASIDE END -->
+									<!-- First Name -->
+									<div class="form-group row">
+										<label for="firstName" class="col-12 col-sm-4 col-form-label text-sm-right">First name:</label>
+										<div class="col d-flex align-items-center">
+											<input type="text" class="form-control" id="firstName" placeholder="John" required />
+										</div>
 									</div>
+
+									<!-- Surname -->
+									<div class="form-group row">
+										<label for="surname" class="col-12 col-sm-4 col-form-label text-sm-right">Surname:</label>
+										<div class="col d-flex align-items-center">
+											<input type="text" class="form-control" id="surname" placeholder="Doe" required />
+										</div>
+									</div>
+
+									<!-- Email -->
+									<div class="form-group row">
+										<label for="email" class="col-12 col-sm-4 col-form-label text-sm-right">Your email:</label>
+										<div class="col d-flex align-items-center">
+											<input type="email" class="form-control" id="email" placeholder="johndoe@email.co.uk" required />
+										</div>
+									</div>
+
+									<!-- Telephone -->
+									<div class="form-group row">
+										<label for="telephone" class="col-12 col-sm-4 col-form-label text-sm-right">Telephone:</label>
+										<div class="col d-flex align-items-center">
+											<input type="number" class="form-control" id="telephone" placeholder="01234 123 123" required />
+										</div>
+									</div>
+
+									<!-- Post Code -->
+									<div class="form-group row">
+										<label for="postcode" class="col-12 col-sm-4 col-form-label text-sm-right">Postcode:</label>
+										<div class="col d-flex align-items-center">
+											<input type="text" class="form-control" id="postcode" placeholder="SW1A 0AA" required />
+										</div>
+									</div>
+
+									<!-- Gearbox Type -->
+									<fieldset class="form-group mb-5">
+										<div class="row">
+											<legend class="col-form-label col-12 col-sm-4 col-form-label text-sm-right pt-0">Gearbox Type:</legend>
+											<div class="col">
+												<div class="bfd-radioBtn form-check bg-light mb-1">
+													<input class="form-check-input" type="radio" name="gearboxType" id="gearboxType_manual" value="Manual" checked />
+													<label class="form-check-label" for="gearboxType_manual">
+														MANUAL
+													</label>
+												</div>
+												<div class="bfd-radioBtn form-check bg-light">
+													<input class="form-check-input" type="radio" name="gearboxType" id="gearboxType_auto" value="Automatic" />
+													<label class="form-check-label" for="gearboxType_auto">
+														AUTOMATIC
+													</label>
+												</div>
+											</div>
+										</div>
+									</fieldset>
+
+									<!-- Allow to call? -->
+									<div class="form-group row">
+										<div class="col offset-sm-2">
+											<div class="form-check bfd-checkbox">
+												<input class="form-check-input" type="checkbox" id="allowToCall" required />
+												<label class="form-check-label font-xxxs" for="allowToCall">
+													I agree that by continuing to the next step I am giving my consent to allow RED to call me to discuss Learner Driver offers and to send me relevant Learner Driver offers via email and SMS. I understand RED will
+													hold my data for this purpose for no more than 30 days unless I book a lesson and/or purchase a pre-paid lesson package. RED will not use your data for any other purpose. You can view our full Privacy Policy here.
+												</label>
+											</div>
+										</div>
+									</div>
+									<!-- FORM INPUTS END -->
+
+									<!-- BUTTONS BAR -->
+									<div class="d-flex">
+										<button class="btn btn-primary ml-auto next-step" type="button" data-step="1">NEXT STEP</button>
+									</div>
+									<!-- BUTTONS BAR END -->
+
+									<!-- STEP CONTENT END -->
 								</div>
-								<!-- STEP CONTENT END -->
-							</div>
-							<!-- STEP 1 - YOUR DETAILS END -->
+								<!-- STEP 1 - YOUR DETAILS END -->
 
-							<!-- STEP 2 - PACKAGES -->
-							<div class="tab-pane" role="tabpanel" id="paneStep2">
-								<h2>Step 2 - PACKAGES</h2>
-								<p>This is step 2</p>
+								<!-- STEP 2 - PACKAGES -->
+								<div class="tab-pane" role="tabpanel" id="paneStep2">
+									<h2>Step 2 - PACKAGES</h2>
+									<p>This is step 2</p>
 
-								<!-- BUTTONS BAR -->
-								<div class="d-flex">
-									<button class="btn btn-default prev-step mr-1" type="button" data-step="2">PREVIOUS</button>
-									<button class="btn btn-primary ml-auto next-step" type="button" data-step="2">NEXT STEP</button>
+									<!-- BUTTONS BAR -->
+									<div class="d-flex">
+										<button class="btn btn-default prev-step mr-1" type="button" data-step="2">PREVIOUS</button>
+										<button class="btn btn-primary ml-auto next-step" type="button" data-step="2">NEXT STEP</button>
+									</div>
+									<!-- BUTTONS BAR END -->
 								</div>
-								<!-- BUTTONS BAR END -->
-							</div>
-							<!-- STEP 2 - PACKAGES END -->
+								<!-- STEP 2 - PACKAGES END -->
 
-							<!-- STEP 3 - DATE & TIME -->
-							<div class="tab-pane" role="tabpanel" id="paneStep3">
-								<h2>Step 3 - DATE & TIME</h2>
-								<p>This is step 3</p>
+								<!-- STEP 3 - DATE & TIME -->
+								<div class="tab-pane" role="tabpanel" id="paneStep3">
+									<h2>Step 3 - DATE & TIME</h2>
+									<p>This is step 3</p>
 
-								<!-- BUTTONS BAR -->
-								<div class="d-flex">
-									<button class="btn btn-default prev-step mr-1" type="button" data-step="3">PREVIOUS</button>
-									<button class="btn btn-primary ml-auto next-step" type="button" data-step="3">NEXT STEP</button>
+									<!-- BUTTONS BAR -->
+									<div class="d-flex">
+										<button class="btn btn-default prev-step mr-1" type="button" data-step="3">PREVIOUS</button>
+										<button class="btn btn-primary ml-auto next-step" type="button" data-step="3">NEXT STEP</button>
+									</div>
+									<!-- BUTTONS BAR END -->
 								</div>
-								<!-- BUTTONS BAR END -->
-							</div>
-							<!-- STEP 3 - DATE & TIME END -->
+								<!-- STEP 3 - DATE & TIME END -->
 
-							<!-- STEP 4 - PAYMENT -->
-							<div class="tab-pane" role="tabpanel" id="paneStep4">
-								<h2>Step 4 - PAYMENT</h2>
-								<p>This is step 4</p>
+								<!-- STEP 4 - PAYMENT -->
+								<div class="tab-pane" role="tabpanel" id="paneStep4">
+									<h2>Step 4 - PAYMENT</h2>
+									<p>This is step 4</p>
 
-								<!-- BUTTONS BAR -->
-								<div class="d-flex">
-									<button class="btn btn-default prev-step mr-1" type="button" data-step="4">PREVIOUS</button>
-									<button class="btn btn-primary ml-auto next-step" type="button" data-step="4">NEXT STEP</button>
+									<!-- BUTTONS BAR -->
+									<div class="d-flex">
+										<button class="btn btn-default prev-step mr-1" type="button" data-step="4">PREVIOUS</button>
+										<button class="btn btn-primary ml-auto next-step" type="button" data-step="4">NEXT STEP</button>
+									</div>
+									<!-- BUTTONS BAR END -->
 								</div>
-								<!-- BUTTONS BAR END -->
-							</div>
-							<!-- STEP 4 - PAYMENT END -->
+								<!-- STEP 4 - PAYMENT END -->
 
-							<!-- STEP 5 - THANK YOU -->
-							<div class="tab-pane" role="tabpanel" id="paneStep5">
-								<h2>Complete</h2>
+								<!-- STEP 5 - THANK YOU -->
+								<div class="tab-pane" role="tabpanel" id="paneStep5">
+									<h2>Complete</h2>
 
-								<p>You have successfully completed all steps!</p>
+									<p>You have successfully completed all steps!</p>
+								</div>
+								<!-- STEP 5 - THANK YOU END -->
 							</div>
-							<!-- STEP 5 - THANK YOU END -->
-						</div>
-					</form>
+						</form>
+						<!-- FORM END -->
+
+						<!-- ASIDE -->
+						<aside class="col-12 col-md-4 px-2 py-3 p-md-3 px-lg-4 py-lg-5">
+							<div class="p-3 p-lg-5 border border-primary">
+								<form id="requestCallBack" role="form">
+									<h3 class="text-primary text-center">Unsure?</h3>
+									<p class="lead text-center">why not request a call back with a team member instead</p>
+
+									<!-- Name -->
+									<div class="form-group row">
+										<label for="firstName" class="col-12 col-form-label pb-0">Name:</label>
+										<div class="col d-flex align-items-center">
+											<input type="text" class="form-control" id="firstName" placeholder="John" required />
+										</div>
+									</div>
+
+									<!-- Telephone -->
+									<div class="form-group row">
+										<label for="telephone" class="col-12 col-form-label pb-0">Telephone:</label>
+										<div class="col d-flex align-items-center">
+											<input type="number" class="form-control" id="telephone" placeholder="01234 123 123" required />
+										</div>
+									</div>
+
+									<!-- Submit -->
+									<button class="btn btn-primary ml-auto" type="submit">SUBMIT</button>
+								</form>
+							</div>
+						</aside>
+						<!-- ASIDE END -->
+					</div>
+
 					<!-- PLUGINS' MAIN AREA END -->
 				</section>
 			</div>
