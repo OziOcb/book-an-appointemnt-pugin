@@ -2,65 +2,65 @@
 @import "vendor/bootstrap/_custom";
 @import "vendor/bootstrap/bootstrap.scss";
 
-// Base
+/* BASE */
 @import "base/_palette";
 @import "base/_breakpoints";
 @import "base/_base";
 @import "base/_typography";
 
-// Tabs' bages
+/* TABS' BADGES */
 .bfd-tab {
 	&__icon {
 		color: $color-primary;
 	}
-
 	&__badge {
 		background-color: $color-primary;
 		color: $color-white;
 	}
-
 	&.disabled .bfd-tab {
 		&__icon {
 			color: darken(palette("light"), 40%);
 		}
-
 		&__badge {
 			background-color: palette("light");
 			color: $color-text;
 		}
 	}
-
 	&.active .bfd-tab {
 		&__icon {
 			color: palette("warning");
 		}
-
 		&__badge {
 			background-color: palette("warning");
 		}
 	}
 }
 
-// Real Checkbox
-.bfd-checkbox {
-	input[type="checkbox"] {
+/* ADD FANCY CHECKBOX & RADIO BUTTONS */
+// Real Checkbox/radioBtn
+.bfd-checkbox,
+.bfd-radioBtn {
+	input[type="checkbox"],
+	input[type="radio"] {
 		opacity: 0;
 	}
 }
 
-// Fake Checkbox
-.bfd-checkbox {
+// Fake Checkbox/radioBtn
+.bfd-checkbox,
+.bfd-radioBtn {
+	padding: 10px 5px;
 	label {
 		position: relative;
 		padding-left: 30px;
+		display: block;
 	}
 	label::before,
 	label::after {
 		content: "";
 		position: absolute;
 	}
-
-	// Outer box of the fake checkbox
+	// Outer box of the fake checkbox/radioBtn
 	label::before {
 		height: 21px;
 		width: 21px;
@@ -69,18 +69,18 @@
 		left: 0px;
 		top: 3px;
 	}
-
-	input[type="checkbox"]:checked + label::before {
-		border-color: $color-primary;
-		animation: wobble 0.3s ease;
+	input[type="checkbox"],
+	input[type="radio"] {
+		&:checked + label::before {
+			border-color: $color-primary;
+			animation: wobble 0.3s ease;
+		}
+		// Adding focus styles on the outer-box of the fake checkbox/radioBtn
+		&:focus + label::before {
+			box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+		}
 	}
-
-	/*Adding focus styles on the outer-box of the fake checkbox*/
-	input[type="checkbox"]:focus + label::before {
-		box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
-	}
-
-	// Checkmark of the fake checkbox
+	// Checkmark of the fake checkbox/radioBtn
 	label::after {
 		opacity: 0;
 		height: 10px;
@@ -92,15 +92,23 @@
 		top: 2px;
 		transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.25, 0.1, 0.49, 3.18);
 	}
-
 	// Unhide on the checked state
-	input[type="checkbox"]:checked + label::after {
-		opacity: 1;
-		transform: scale(1) rotate(-45deg);
+	input[type="checkbox"]:checked,
+	input[type="radio"]:checked {
+		+ label::after {
+			opacity: 1;
+			transform: scale(1) rotate(-45deg);
+		}
 	}
 }
 
-// Inputs validation (highlighting while invalid)
+// Make radioBtn rounded
+.bfd-radioBtn label::before {
+	border-radius: 50%;
+}
+
+/* VALIDATION */
+// Input validation (highlighting while invalid)
 .form-control.invalid,
 .bfd-checkbox input[type="checkbox"].invalid + label::before {
 	border: 1px solid #ec2626;
@@ -109,7 +117,17 @@
 	animation: shaking 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
 }
 
-// Animations
+/* OTHER */
+// Change text color of input placeholders
+input[type="text"],
+input[type="email"],
+input[type="number"] {
+	&::placeholder {
+		color: #ccc;
+	}
+}
+
+/* ANIMATIONS */
 @keyframes wobble {
 	0% {
 		transform: scale(1) rotate(0deg);
