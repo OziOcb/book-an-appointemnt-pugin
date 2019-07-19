@@ -1,0 +1,51 @@
+// Custom.scss
+/* ------- import the necessary Bootstrap files ------- */
+@import "_functions";
+@import "_variables";
+@import "../../base/_breakpoints.scss";
+@import "../../base/_palette.scss";
+
+/* ------- Your variable overrides ------- */
+
+// To modify Bootstrap's maps like the one below, follow their official guide:
+// https://getbootstrap.com/docs/4.0/getting-started/theming/#maps-and-loops
+
+
+$theme-colors: (
+    "primary":    palette('primary'),
+    "secondary":  palette('secondary'),
+    "success":    palette('success'),
+    "info":       palette('info'),
+    "warning":    palette('warning'),
+    "danger":     palette('danger'),
+    "light":      palette('light'),
+    "dark":       palette('dark'),
+);
+
+// MEDIA QUERIES
+// IMPORTANT!!!
+// 1. Bootstrap uses Mobile-first Media Queries!
+// 2. I had to add 1px to every breakpoint in order to
+//    match our Media Queries
+
+// Bootstrap Queries (min-width + 1px)			Our Queries (max-width)
+$grid-breakpoints: (
+  xxxs: 0, 									                //	(max-width: mobile-sm)        default = 320px
+  xxs: breakpoint('mobile-sm'),		          //  (max-width: mobile)                   = 480px
+  xs: breakpoint('mobile') + 1px,		      	//	(max-width: mobile-lg)                = 600px
+  sm: breakpoint('mobile-lg') + 1px,	    	//	(max-width: tablet-portrait)          = 768px
+  md: breakpoint('tablet-portrait') + 1px,	//  (max-width: tablet-landscape)         = 1024px
+  lg: breakpoint('tablet-landscape') + 1px,	//  (max-width: screen)                   = 1366px
+  xl: breakpoint('screen') + 1px,			      //	base
+  xxl: 1441px
+);
+$container-max-widths: (
+  xxxs: 0, 									                //	(max-width: mobile-sm)
+  xxs: breakpoint('mobile-sm'),		          //  (max-width: mobile)
+  xs: breakpoint('mobile') + 1px,		      	//	(max-width: mobile-lg)
+  sm: breakpoint('mobile-lg') + 1px,		    //	(max-width: tablet-portrait)
+  md: breakpoint('tablet-portrait') + 1px,	//  (max-width: tablet-landscape)
+  lg: breakpoint('tablet-landscape') + 1px,	//  (max-width: screen)
+  xl: breakpoint('screen') + 1px,			      //	base
+  xxl: 1441px
+);
