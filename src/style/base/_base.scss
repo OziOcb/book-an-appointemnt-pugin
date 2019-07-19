@@ -27,6 +27,10 @@ body {
 	overflow: visible !important;
 }
 
+.overflow-y-scroll {
+	overflow-y: scroll;
+}
+
 // Set min-height of an element using vh unit
 .fill-viewport {
 	min-height: 100vh;
@@ -56,6 +60,11 @@ body {
 
 .h-60vw {
 	height: 60vw;
+}
+
+// Set height of an element considering the browser's hight
+.h-60vh {
+	height: 60vh;
 }
 
 // Set up hight: auto on tablet-landscape and above
