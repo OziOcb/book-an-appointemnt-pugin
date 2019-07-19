@@ -9,33 +9,33 @@ function validateStep(step) {
 
 	// Check if inputs are empty
 	for (let input of inputs) {
-		const inClassList = input.classList;
+		const inputParent = input.parentNode.classList;
 
 		if (input.value === "" && input.hasAttribute("required")) {
-			inClassList.add("invalid");
+			inputParent.add("invalid");
 			valid = false;
 		} else {
 			const regexEmail = /[a-z0-9!#$%&' * +/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/;
 			const regexTel = /\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}/;
 
 			if ((input.id === "email" && !input.value.match(regexEmail)) || (input.id === "telephone" && !input.value.match(regexTel))) {
-				inClassList.add("invalid");
+				inputParent.add("invalid");
 				valid = false;
 			} else {
-				inClassList.remove("invalid");
+				inputParent.remove("invalid");
 			}
 		}
 	}
 
 	// Check if checkboxes are checked
 	for (let checkbox of checkboxes) {
-		const checkClassList = checkbox.classList;
+		const checkboxParent = checkbox.parentNode.classList;
 
 		if (!checkbox.checked && checkbox.hasAttribute("required")) {
-			checkClassList.add("invalid");
+			checkboxParent.add("invalid");
 			valid = false;
 		} else {
-			checkClassList.remove("invalid");
+			checkboxParent.remove("invalid");
 		}
 	}
 
@@ -68,7 +68,7 @@ const rmInvalidClass = () => {
 	const inputs = document.querySelectorAll("input");
 	inputs.forEach(input => {
 		input.addEventListener("focus", () => {
-			input.classList.remove("invalid");
+			input.parentNode.classList.remove("invalid");
 		});
 	});
 };
