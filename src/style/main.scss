@@ -54,20 +54,21 @@
 		position: relative;
 		padding-left: 30px;
 		display: block;
-	}
-	label::before,
-	label::after {
-		content: "";
-		position: absolute;
-	}
-	// Outer box of the fake checkbox/radioBtn
-	label::before {
-		height: 21px;
-		width: 21px;
-		border: 1px solid #aaa;
-		border-radius: 3px;
-		left: 0px;
-		top: 3px;
+
+		&::before,
+		&::after {
+			content: "";
+			position: absolute;
+		}
+		// Outer box of the fake checkbox/radioBtn
+		&::before {
+			height: 21px;
+			width: 21px;
+			border: 1px solid #aaa;
+			border-radius: 3px;
+			left: 0px;
+			top: 3px;
+		}
 	}
 	input[type="checkbox"],
 	input[type="radio"] {
@@ -105,6 +106,35 @@
 // Make radioBtn rounded
 .bfd-radioBtn label::before {
 	border-radius: 50%;
+}
+
+/* HOUR PACKAGES */
+// Needed to be used with .bfd-radioBtn class
+.bfd-hourPackage {
+	label {
+		padding: 1.5em 10px 1.5em 60px;
+		border: 1px solid transparent;
+		border-radius: 5px;
+		transition: border-color 0.3s ease;
+
+		&::before {
+			left: 20px;
+			top: 30px;
+		}
+		&::after {
+			left: 22px;
+			top: 29px;
+		}
+	}
+
+	input[type="radio"] {
+		&:checked + label {
+			border-color: $color-primary;
+		}
+		&:focus + label {
+			box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+		}
+	}
 }
 
 /* VALIDATION */
